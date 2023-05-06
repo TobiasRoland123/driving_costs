@@ -70,6 +70,7 @@ function App() {
           <TextField
             label="Brændstof pris pr liter"
             id="outlined-start-adornment"
+            type="number"
             sx={{ m: 1, width: "25ch" }}
             InputProps={{
               startAdornment: <InputAdornment position="start">Dkk</InputAdornment>,
