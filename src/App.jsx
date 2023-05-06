@@ -55,7 +55,16 @@ function App() {
           noValidate
           autoComplete="off"
         >
-          <TextField id="outlined-basic" label="Afstand i km" variant="outlined" onChange={onChangeDistance} Type="number" inputMode="numeric" />
+          <TextField
+            id="outlined-number"
+            label="Afstand i km"
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={onChangeDistance}
+          />
+          {/* <TextField id="outlined-basic" label="Afstand i km" variant="outlined" onChange={onChangeDistance} Type="number" inputMode="numeric" /> */}
 
           <TextField
             label="Brændstof pris pr liter"
