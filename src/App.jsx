@@ -73,9 +73,28 @@ function App() {
             sx={{ m: 1, width: "25ch" }}
             InputProps={{
               startAdornment: <InputAdornment position="start">Dkk</InputAdornment>,
+              inputMode: "numeric",
+              pattern: "[0-9]*",
             }}
             onChange={onChangeGasPrice}
           />
+
+          {/* <TextField
+            id="outlined-start-adornment"
+            label="Brændstof pris pr liter"
+            type="number"
+            sx={{ m: 1, width: "25ch" }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              startAdornment: <InputAdornment position="start">Dkk</InputAdornment>,
+
+              inputMode: "numeric",
+              pattern: "[0-9]*",
+            }}
+            onChange={onChangeDistance}
+          /> */}
 
           <Button variant="contained" onClick={calcResult}>
             Udregn pris
