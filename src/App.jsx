@@ -75,17 +75,16 @@ function App() {
           {/* <TextField id="outlined-basic" label="Afstand i km" variant="outlined" onChange={onChangeDistance} Type="number" inputMode="numeric" /> */}
 
           <TextField
-            label="Brændstof pris pr liter"
             id="outlined-number"
+            label="Brændstof pris pr liter DKK"
             type="number"
-            // sx={{ m: 1, width: "25ch" }}
-            InputProps={{
-              startAdornment: <InputAdornment position="start">Dkk</InputAdornment>,
-              inputMode: "numeric",
-              pattern: "[0-9]*",
+            InputLabelProps={{
+              shrink: true,
             }}
+            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
             onChange={onChangeGasPrice}
           />
+
           <div>
             <small>Skal du køre begge veje?</small>
             <Switch {...label} onChange={switchOnChange} />
