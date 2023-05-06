@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Box from "@mui/material/Box";
-
+import Switch from "@mui/material/Switch";
 import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -12,7 +12,9 @@ function App() {
   const [distance, setDistance] = useState(0);
   const [gassPrice, setGasPrice] = useState(0);
   const [result, setResult] = useState(0);
+  const label = { inputProps: { "aria-label": "Switch demo" } };
 
+  const [bothWays, setBothWays] = useState(false);
   function onChangeDistance(e) {
     // console.log(e.target.value);
     setDistance(e.target.value);
@@ -30,14 +32,19 @@ function App() {
   }
 
   function calcResult() {
-    const distanceNum = Number(distance);
+    const distanceNum = bothWays ? Number(distance) * 2 : Number(distance);
     const gasPriceNum = Number(gassPrice);
 
     const resultNum = Math.round((distanceNum / 18) * gasPriceNum);
 
     // console.log(resultNum);
-
+    console.log("both ways is:", bothWays);
     setResult(resultNum);
+  }
+
+  function switchOnChange(e) {
+    // console.log(e.target.checked);
+    setBothWays(e.target.checked);
   }
 
   return (
@@ -79,6 +86,10 @@ function App() {
             }}
             onChange={onChangeGasPrice}
           />
+          <div>
+            <small>Skal du køre begge veje?</small>
+            <Switch {...label} onChange={switchOnChange} />
+          </div>
 
           <Button variant="contained" onClick={calcResult}>
             Udregn pris
