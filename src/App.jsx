@@ -62,6 +62,7 @@ function App() {
             InputLabelProps={{
               shrink: true,
             }}
+            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
             onChange={onChangeDistance}
           />
           {/* <TextField id="outlined-basic" label="Afstand i km" variant="outlined" onChange={onChangeDistance} Type="number" inputMode="numeric" /> */}
