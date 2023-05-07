@@ -1,10 +1,7 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Box from "@mui/material/Box";
 import Switch from "@mui/material/Switch";
-import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
@@ -13,8 +10,8 @@ function App() {
   const [gassPrice, setGasPrice] = useState(0);
   const [result, setResult] = useState(0);
   const label = { inputProps: { "aria-label": "Switch demo" } };
-
   const [bothWays, setBothWays] = useState(false);
+
   function onChangeDistance(e) {
     // console.log(e.target.value);
     setDistance(e.target.value);
@@ -26,16 +23,12 @@ function App() {
     setGasPrice(e.target.value);
   }
 
-  function logNumbers() {
-    console.log(distance);
-    console.log(gassPrice);
-  }
-
   function calcResult() {
     const distanceNum = bothWays ? Number(distance) * 2 : Number(distance);
     const gasPriceNum = Number(gassPrice);
 
-    const resultNum = Math.round((distanceNum / 18) * gasPriceNum);
+    const resultNum =
+      distance < 15 ? Math.round((distanceNum / 16) * gasPriceNum) : Math.round((distanceNum / 17.5) * gasPriceNum);
 
     // console.log(resultNum);
     console.log("both ways is:", bothWays);
